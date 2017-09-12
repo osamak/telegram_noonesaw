@@ -24,3 +24,7 @@ CREATE TABLE messages(
    is_deleted           BOOLEAN NOT NULL
 );
 ```
+
+6. Run `python3 listen.py`
+
+7. Schedule `python3 delete.py` to run as a cronjob every minute.

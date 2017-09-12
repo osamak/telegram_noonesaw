@@ -9,8 +9,8 @@ bot = telepot.aio.Bot(secrets.TELEGRAM_TOKEN)
 
 async def delete_older_messages():
     pool = await core._acquire_pool()
-    unix_seconds = int(datetime.datetime.now().strftime("%s"))
-    unix_seconds = 0
+    yesterday = datetime.datetime.now() - datetime.timedelta(1)
+    unix_seconds = int(yesterday.strftime("%s"))
 
     async with pool.acquire() as aconnection:
         async with aconnection.cursor() as cursor:
